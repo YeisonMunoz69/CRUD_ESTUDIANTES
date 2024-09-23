@@ -10,6 +10,8 @@ import './models/Administrador';
 
 // Importar las rutas
 import estudianteRoutes from './routes/estudianteRoutes';
+import administradorRoutes from './routes/administradorRoutes';
+import cursoRoutes from './routes/cursoRoutes';
 
 dotenv.config();  
 
@@ -18,8 +20,11 @@ const app = express();
 // Usar las rutas importadas en la aplicación de Express 
 app.use(express.json());
 
-// Registrar las rutas de estudiantes en la aplicación de Express
+// RUTAS
 app.use(estudianteRoutes);
+app.use('/administradores', administradorRoutes);
+app.use('/cursos', cursoRoutes);
+
 
 // Sirve para verificar que la conexión a la base de datos es correcta
 sequelize.authenticate()
